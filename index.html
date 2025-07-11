@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold River Analytics - Data Analytics & Research</title>
+    <meta name="description" content="Professional data analytics and research services. Transform your data into actionable insights with Gold River Analytics.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #404040;
+            background-color: #FAFAFA;
+        }
+        
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .navbar {
+            background-color: #F5F5F5;
+            border-bottom: 1px solid #EAEAEA;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 0 5px rgba(0,0,0,.1);
+        }
+        
+        .navbar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #404040;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #F4B942;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 12px;
+            width: 26px;
+            height: 2px;
+            background: #333;
+            border-radius: 1px;
+            transform: rotate(-15deg);
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 14px;
+            width: 22px;
+            height: 2px;
+            background: #333;
+            border-radius: 1px;
+            transform: rotate(15deg);
+        }
+        
+        .site-title {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #404040;
+            letter-spacing: -1px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar-nav li {
+            margin-left: 15px;
+        }
+        
+        .navbar-nav a {
+            color: #404040;
+            text-decoration: none;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            padding: 12px 15px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .navbar-nav a:hover {
+            background-color: #EAEAEA;
+        }
+        
+        /* Hero Section */
+        .intro-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><polygon fill="%23764ba2" points="0,600 1200,400 1200,600"/></svg>');
+            background-attachment: scroll;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 80px;
+            padding: 150px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .intro-header h1 {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 80px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .intro-header .page-heading {
+            font-family: 'Lora', 'Times New Roman', serif;
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: #F4B942;
+            color: #404040;
+        }
+        
+        .btn-primary:hover {
+            background-color: #E8A825;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+        
+        .section-heading {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #404040;
+        }
+        
+        .services-section {
+            margin-bottom: 80px;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        
+        .service-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: #F4B942;
+            margin-bottom: 20px;
+        }
+        
+        .service-item h3 {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #404040;
+        }
+        
+        .service-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #808080;
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: white;
+            padding: 80px 0;
+            margin: 80px 0;
+            border-top: 1px solid #EAEAEA;
+            border-bottom: 1px solid #EAEAEA;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .about-text {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .about-text h3 {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #404040;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #404040;
+        }
+        
+        .stats-box {
+            background: #F8F8F8;
+            padding: 30px;
+            border-radius: 5px;
+            border-left: 4px solid #F4B942;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-number {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #F4B942;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #404040;
+        }
+        
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #404040;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+            color: #404040;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #CCCCCC;
+            border-radius: 3px;
+            font-size: 16px;
+            font-family: 'Lora', 'Times New Roman', serif;
+            transition: border-color 0.3s;
+            background-color: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #F4B942;
+            box-shadow: 0 0 5px rgba(244, 185, 66, 0.3);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #404040;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .navbar-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .navbar-nav li {
+                margin: 5px;
+            }
+            
+            .intro-header {
+                padding: 100px 0;
+            }
+            
+            .intro-header h1 {
+                font-size: 50px;
+            }
+            
+            .intro-header .page-heading {
+                font-size: 20px;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-heading {
+                font-size: 32px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Beautiful Jekyll specific styling touches */
+        .intro-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: -1;
+        }
+        
+        .navbar-brand:hover {
+            text-decoration: none;
+            color: #F4B942;
+        }
+        
+        .main-content {
+            background-color: #FAFAFA;
+        }
+        
+        /* Additional Beautiful Jekyll inspired elements */
+        .divider {
+            width: 100px;
+            height: 1px;
+            background-color: #F4B942;
+            margin: 30px auto;
+        }
+        
+        .highlight-box {
+            background: #F8F8F8;
+            border-left: 4px solid #F4B942;
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">
+                    <div class="logo"></div>
+                    <span class="site-title">Gold River Analytics</span>
+                </a>
+                <ul class="navbar-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header id="home" class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Transform Data Into Insights</h1>
+                        <hr class="small">
+                        <span class="subheading">Professional data analytics and research services that drive informed decision-making and sustainable business growth.</span>
+                        <br><br>
+                        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Services Section -->
+            <section id="services" class="services-section">
+                <h2 class="section-heading">Our Expertise</h2>
+                <div class="divider"></div>
+                
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>Comprehensive data analysis using advanced statistical methods and machine learning techniques to uncover hidden patterns and actionable insights in your data.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Market Research</h3>
+                        <p>In-depth market research, competitive analysis, and custom research projects tailored to your specific business objectives and strategic goals.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Business Intelligence</h3>
+                        <p>Dashboard creation, KPI tracking, and automated reporting systems to help you monitor performance and make data-driven decisions with confidence.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Strategic Consulting</h3>
+                        <p>Expert guidance on data strategy, analytics implementation, and organizational data maturity to maximize your analytical capabilities and ROI.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Predictive Modeling</h3>
+                        <p>Advanced forecasting and predictive analytics to help you anticipate market trends, optimize operations, and mitigate potential risks.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Data Visualization</h3>
+                        <p>Clear, compelling visualizations and interactive dashboards that make complex data accessible and actionable for all stakeholders.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-heading">About Gold River Analytics</h2>
+            <div class="divider"></div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Expertise Built on Experience</h3>
+                    <p>Gold River Analytics is a specialized data analytics research firm dedicated to helping organizations unlock the full potential of their data. We combine deep analytical expertise with industry knowledge to deliver insights that drive real business results.</p>
+                    
+                    <p>Our approach focuses on understanding your unique challenges and objectives, then applying the most appropriate analytical techniques to generate actionable insights. We believe that great analytics isn't just about the numbers – it's about translating complex data into clear, strategic recommendations that your team can act upon immediately.</p>
+                    
+                    <div class="highlight-box">
+                        "We don't just analyze data – we transform it into the strategic advantage your business needs to thrive in today's competitive landscape."
+                    </div>
+                    
+                    <p>Whether you're looking to optimize operations, understand market dynamics, predict future trends, or gain competitive intelligence, we have the expertise and proven methodologies to help you succeed in our increasingly data-driven world.</p>
+                </div>
+                
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="main-content">
+        <div class="container">
+            <section id="contact" class="contact-section">
+                <h2 class="section-heading">Let's Discuss Your Project</h2>
+                <div class="divider"></div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Ready to Get Started?</h3>
+                        <p>Every great project begins with a conversation. Let's discuss how we can help transform your data challenges into competitive advantages.</p>
+                        
+                        <p><strong>What to Expect:</strong></p>
+                        <p>✓ Free initial consultation and project assessment<br>
+                        ✓ Custom analytics roadmap for your business<br>
+                        ✓ Transparent pricing with no hidden costs<br>
+                        ✓ Dedicated project manager and support team</p>
+                        
+                        <p><strong>Response Time:</strong> We typically respond to all inquiries within 4 hours during business days.</p>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" class="form-control" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Tell us about your project *</label>
+                                <textarea class="form-control" id="message" name="message" placeholder="Describe your data analytics needs, current challenges, and project goals..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Gold River Analytics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert('Thank you for your message! We will get back to you within 4 hours during business days.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.backgroundColor = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.backgroundColor = '#EAEAEA';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
